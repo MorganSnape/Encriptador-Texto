@@ -13,7 +13,7 @@
     <title>Encriptador de texto</title>
 
     <link rel="icon" href="/img/favicon.svg" type="image/x-icon" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../global.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -44,23 +44,25 @@
         </ul>
       </nav>
     </header>
-    <main>
-      <section>
-        <div>
-          <img src="" alt="" />
+
+    <main id="container">
+      <section id="request-container">
+        <div id="instructions">
+          <img src="/img/bi_exclamation-circle-fill.svg" alt="Importante" />
           <span>Solo letras minúsculas y sin acentos</span>
         </div>
-        <input type="text" />
-        <div>
-          <button></button>
-          <button></button>
+        <input type="text" title="Cuentame tu secreto..."/>
+        <div id="buttons-container">
+          <button class="button">Encriptar</button>
+          <button class="button">Desencriptar</button>
         </div>
       </section>
-      <article>
-        <header>
-          <img src="" alt="" />
+
+      <article id="resp-container">
+        <header id="cat-eyes-container">
+          <img src="/img/Gatito.svg" alt="Soy un Gatito" id="cat-eyes"/>
         </header>
-        <main>
+        <main id="text-container">
           <h1>No logre encontrar tu Prrr... mensaje</h1>
           <p>Ingresa el texto que desees encriptar o desencriptar.</p>
         </main>
