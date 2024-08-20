@@ -1,6 +1,6 @@
 #container {
   display: grid;
-  grid-template-columns: 40% 22%;
+  grid-template-columns: 35% 22%;
   align-items: center;
   justify-content: center;
   gap: 80px;
@@ -15,7 +15,7 @@
 
 #request-container {
   align-items: flex-start;
-  height: 80%;
+  height: 90%;
 }
 
 #resp-container {
@@ -51,12 +51,20 @@
   }
 }
 
-input {
+#text-field {
   border: var(--line-box-color) solid 1px;
   background-color: var(--text-field-color);
   border-radius: 30px;
+  padding: 40px;
   height: 100%;
-  width: 100%;
+  width: 84%;
+  font-size: 16px;
+  color: white;
+  font-family: var(--font-family);
+}
+
+#text-field::placeholder{
+  color: var(--text-second-color);
 }
 
 #buttons-container {
