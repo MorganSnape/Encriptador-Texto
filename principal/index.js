@@ -1,9 +1,9 @@
 const btnEncriptar = document.getElementById("btn-encriptar");
 const btnDesencriptar = document.getElementById("btn-desencriptar");
-const btnCopyText = document.getElementById("copiar")
+const btnCopyText = document.getElementById("copiar");
 
 const input = document.getElementById("text-field");
-const responMsg = document.getElementById("respon-message")
+const responMsg = document.getElementById("respon-message");
 
 //Funcion para obtener el texto del textarea
 function getText() {
@@ -97,18 +97,35 @@ function updateUIState() {
   }
 }
 
-
 //Funcion para copiar texto
 
-btnCopyText.addEventListener("click", () =>{
- copyText()
-})
+btnCopyText.addEventListener("click", () => {
+  copyText();
+});
 
-function copyText(){
- let copyText = responMsg.innerText;
+function copyText() {
+  let copyText = responMsg.innerText;
 
-navigator.clipboard.writeText(copyText);
-alert("Texto copiado " + copyText)
+  navigator.clipboard.writeText(copyText);
 
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top',
+    iconColor: 'white',
+    customClass: {
+      popup: 'white',
+    },
+    showConfirmButton: false,
+    timer: 1500,
+    timerProgressBar: true,
+  })
+  
+  ;(async () => {
+    await Toast.fire({
+      icon: 'success',
+      title: "¡Copiaste tu mensaje!",
+      background:"black",
+      color:"white",
+      
+    })})()
 }
-
