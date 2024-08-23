@@ -1,15 +1,17 @@
-let btnEncriptar = document.getElementById("btn-encriptar");
-let btnDesencriptar = document.getElementById("btn-desencriptar");
+const btnEncriptar = document.getElementById("btn-encriptar");
+const btnDesencriptar = document.getElementById("btn-desencriptar");
+const input = document.getElementById("text-field");
 
+//Funcion para obtener el texto del textarea
 function getText() {
-  return "" + document.getElementById("text-field").value;
+  return "" + input.value;
 }
 
 // Funcion para encriptar el texto
 btnEncriptar.addEventListener("click", () => {
   let text = getText();
-  let textoCifrado = encriptar(text)
-  
+  let textoCifrado = encriptar(text);
+
   message(textoCifrado);
 });
 
@@ -25,9 +27,14 @@ function encriptar(text) {
 
 // Funcion para desencriptar el texto
 
-function desencriptar() {
-  let textarea = document.getElementById("text-field").value;
-  message(textoCifrado);
+function desencriptar(text) {
+  let textoDescifrado = text
+    .replace(/ai/gi, "a")
+    .replace(/enter/gi, "e")
+    .replace(/imes/gi, "i")
+    .replace(/ober/gi, "o")
+    .replace(/ufat/gi, "u");
+  return textoDescifrado;
 }
 
 // Funcion para imprimir el mensaje
@@ -50,5 +57,32 @@ function message(msg) {
       subTexto.classList.add("disabled");
       btnCopiar.classList.remove("disabled");
       break;
+  }
+}
+
+input.addEventListener("input", () => {
+  updateUIState();
+});
+
+function isTextValid() {
+  return !getText().match(/[^a-z\s]+/);
+}
+
+function updateUIState() {
+  const instructions = document.getElementById("instructions");
+  if (isTextValid()) {
+    // Habilitar botones
+    btnEncriptar.removeAttribute("disabled");
+    btnDesencriptar.removeAttribute("disabled");
+
+    // poner texto de alerta normal
+    instructions.classList.remove("invalid");
+  } else {
+    // Deshabilitar botones
+    btnEncriptar.setAttribute("disabled", "");
+    btnDesencriptar.setAttribute("disabled", "");
+
+    // poner texto de alerta grande y rojo
+    instructions.classList.add("invalid");
   }
 }
