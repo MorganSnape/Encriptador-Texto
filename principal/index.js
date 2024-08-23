@@ -1,6 +1,9 @@
 const btnEncriptar = document.getElementById("btn-encriptar");
 const btnDesencriptar = document.getElementById("btn-desencriptar");
+const btnCopyText = document.getElementById("copiar")
+
 const input = document.getElementById("text-field");
+const responMsg = document.getElementById("respon-message")
 
 //Funcion para obtener el texto del textarea
 function getText() {
@@ -26,6 +29,13 @@ function encriptar(text) {
 }
 
 // Funcion para desencriptar el texto
+
+btnDesencriptar.addEventListener("click", () => {
+  let text = getText();
+  let textoDescifrado = desencriptar(text);
+
+  message(textoDescifrado);
+});
 
 function desencriptar(text) {
   let textoDescifrado = text
@@ -86,3 +96,19 @@ function updateUIState() {
     instructions.classList.add("invalid");
   }
 }
+
+
+//Funcion para copiar texto
+
+btnCopyText.addEventListener("click", () =>{
+ copyText()
+})
+
+function copyText(){
+ let copyText = responMsg.innerText;
+
+navigator.clipboard.writeText(copyText);
+alert("Texto copiado " + copyText)
+
+}
+
