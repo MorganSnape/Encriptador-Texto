@@ -1,30 +1,33 @@
-
-
 let btnEncriptar = document.getElementById("btn-encriptar");
 let btnDesencriptar = document.getElementById("btn-desencriptar");
 
 function getText() {
-  return ''+document.getElementById("text-field").value;
+  return "" + document.getElementById("text-field").value;
 }
 
 // Funcion para encriptar el texto
-btnEncriptar.addEventListener("click",()=>{
-  let textarea = getText();
-  let textoCifrado = textarea
-  .replace(/a/gi, "ai")
-  .replace(/e/gi, "enter")
-  .replace(/i/gi, "imes")
-  .replace(/o/gi, "ober")
-  .replace(/u/gi, "ufat");
+btnEncriptar.addEventListener("click", () => {
+  let text = getText();
+  let textoCifrado = encriptar(text)
+  
   message(textoCifrado);
-})
+});
+
+function encriptar(text) {
+  let textoCifrado = text
+    .replace(/a/gi, "ai")
+    .replace(/e/gi, "enter")
+    .replace(/i/gi, "imes")
+    .replace(/o/gi, "ober")
+    .replace(/u/gi, "ufat");
+  return textoCifrado;
+}
 
 // Funcion para desencriptar el texto
 
 function desencriptar() {
   let textarea = document.getElementById("text-field").value;
   message(textoCifrado);
-  
 }
 
 // Funcion para imprimir el mensaje
@@ -38,7 +41,7 @@ function message(msg) {
   switch (true) {
     case msg.length === 0:
       campoMsg.innerText = "No logre encontrar tu Prrr... mensaje";
-      subTexto.classList.remove("disabled")
+      subTexto.classList.remove("disabled");
       btnCopiar.classList.add("disabled");
       break;
 
@@ -46,7 +49,6 @@ function message(msg) {
       campoMsg.innerText = msg;
       subTexto.classList.add("disabled");
       btnCopiar.classList.remove("disabled");
-      break;  
+      break;
   }
 }
-
