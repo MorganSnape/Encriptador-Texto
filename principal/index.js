@@ -19,12 +19,26 @@ btnEncriptar.addEventListener("click", () => {
 });
 
 function encriptar(text) {
-  let textoCifrado = text
-    .replace(/a/gi, "ai")
-    .replace(/e/gi, "enter")
-    .replace(/i/gi, "imes")
-    .replace(/o/gi, "ober")
-    .replace(/u/gi, "ufat");
+  let texto = "" + text;
+  let textoCifrado = texto
+    .split("")
+    .map((text) => {
+      paramEncript = {
+        a: "g",
+        e: "f",
+        i: "l",
+        o: "y",
+        u: "h",
+        l: "a",
+        g: "e",
+        f: "i",
+        h: "o",
+        y: "u",
+      };
+      return paramEncript[text] || text;
+    })
+    .reduce((acumulador, posicion) => acumulador + posicion);
+
   return textoCifrado;
 }
 
@@ -38,12 +52,26 @@ btnDesencriptar.addEventListener("click", () => {
 });
 
 function desencriptar(text) {
-  let textoDescifrado = text
-    .replace(/ai/gi, "a")
-    .replace(/enter/gi, "e")
-    .replace(/imes/gi, "i")
-    .replace(/ober/gi, "o")
-    .replace(/ufat/gi, "u");
+  let texto = "" + text;
+  let textoDescifrado = texto
+    .split("")
+    .map((text) => {
+      paramEncript = {
+        g: "a",
+        f: "e",
+        l: "i",
+        y: "o",
+        h: "u",
+        a: "l",
+        e: "g",
+        i: "f",
+        o: "h",
+        u: "y",
+      };
+      return paramEncript[text] || text;
+    })
+    .reduce((acumulador, posicion) => acumulador + posicion);
+
   return textoDescifrado;
 }
 
@@ -110,22 +138,22 @@ function copyText() {
 
   const Toast = Swal.mixin({
     toast: true,
-    position: 'top',
-    iconColor: 'white',
+    position: "top",
+    iconColor: "white",
     customClass: {
-      popup: 'white',
+      popup: "white",
     },
     showConfirmButton: false,
     timer: 1500,
     timerProgressBar: true,
-  })
-  
-  ;(async () => {
+  });
+
+  (async () => {
     await Toast.fire({
-      icon: 'success',
+      icon: "success",
       title: "¡Copiaste tu mensaje!",
-      background:"black",
-      color:"white",
-      
-    })})()
+      background: "black",
+      color: "white",
+    });
+  })();
 }
