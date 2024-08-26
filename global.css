@@ -83,7 +83,7 @@ footer {
 }
 
 
-@media (max-width: 450px){
+@media (max-width: 560px){
   footer{
     position: static;
   } 

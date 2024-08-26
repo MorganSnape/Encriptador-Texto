@@ -9,6 +9,7 @@
     />
     <meta name="keywords" content="Encriptador, texto, secreto, proyecto" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="view-transition" content="same-origin">
 
     <title>Encriptador de texto</title>
 
@@ -46,7 +47,7 @@
     </header>
     <main>
       <h1 id="title">Guarda tus secretos</h1>
-      <h2>Encriptador de texto</h2>
+      <a href="/principal/index.html" id="link-app">Click para encriptar tu texto</a>
       <img src="/img/Gatito.svg" alt="Soy un Gatito" id="foco-image" />
     </main>
 
@@ -61,5 +62,12 @@
       </div>
       <p id="desarrollado-por">©2024 - Desarrollado por Gabriela Ferrer</p>
     </footer>
+
+    <script>
+      window.navigation.addEventListener("navigate",(event)=>{
+        const toUrl = new URL(event.destination.url)
+      })
+    </script>
   </body>
 </html>
+

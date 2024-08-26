@@ -2,20 +2,22 @@ const btnEncriptar = document.getElementById("btn-encriptar");
 const btnDesencriptar = document.getElementById("btn-desencriptar");
 const btnCopyText = document.getElementById("copiar");
 
-const input = document.getElementById("text-field");
+const textarea = document.getElementById("text-field");
 const responMsg = document.getElementById("respon-message");
 
 //Funcion para obtener el texto del textarea
 function getText() {
-  return "" + input.value;
+  return "" + textarea.value;
 }
 
 // Funcion para encriptar el texto
 btnEncriptar.addEventListener("click", () => {
   let text = getText();
-  let textoCifrado = encriptar(text);
+  let textoCifrado = "";
 
-  message(textoCifrado);
+  textoCifrado = encriptar(text);
+
+  insertarMensaje(textoCifrado);
 });
 
 function encriptar(text) {
@@ -37,7 +39,7 @@ function encriptar(text) {
       };
       return paramEncript[text] || text;
     })
-    .reduce((acumulador, posicion) => acumulador + posicion);
+    .reduce((acumulador, actual) => acumulador + actual, "");
 
   return textoCifrado;
 }
@@ -48,7 +50,7 @@ btnDesencriptar.addEventListener("click", () => {
   let text = getText();
   let textoDescifrado = desencriptar(text);
 
-  message(textoDescifrado);
+  insertarMensaje(textoDescifrado);
 });
 
 function desencriptar(text) {
@@ -76,9 +78,7 @@ function desencriptar(text) {
 }
 
 // Funcion para imprimir el mensaje
-
-// TODO Renombrar función por algo que indique mejor la acción
-function message(msg) {
+function insertarMensaje(msg) {
   let campoMsg = document.getElementById("respon-message");
   let subTexto = document.getElementById("texto-extra");
   let btnCopiar = document.getElementById("copiar");
@@ -98,12 +98,12 @@ function message(msg) {
   }
 }
 
-input.addEventListener("input", () => {
+textarea.addEventListener("input", () => {
   updateUIState();
 });
 
 function isTextValid() {
-  return !getText().match(/[^a-z\s]+/);
+  return !getText().match(/[^a-z\sñ]+/);
 }
 
 function updateUIState() {
