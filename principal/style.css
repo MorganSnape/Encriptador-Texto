@@ -3,7 +3,7 @@
   grid-template-columns: 40% 24%;
   grid-template-rows: 80%;
   place-content: center;
-  gap: 80px;
+  gap: 60px;
   height: 75vh;
 }
 
@@ -19,24 +19,44 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   justify-content: flex-end;
-  gap: 30px;
-  position: relative;
+  gap: 20px;
+
   background-color: black;
   text-align: center;
   height: 100%;
   border-radius: 30px;
   word-break: break-word;
   overflow: hidden;
+  position: relative;
 }
 
+article#resp-container {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
 
+/* #cat-eyes-container {
+  position: absolute;
+  top: 12px;
+  height: 120px;
+} */
 
 #cat-eyes-container {
-  position: absolute;
-  top: 10px;
-  height: 30%;
-  margin-bottom: 20px;
+  height: 120px;
+}
+
+#text-container {
+  flex: 1;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #cat-eyes {
@@ -47,12 +67,11 @@
   width: 80%;
 }
 
-#texto-extra{
+#texto-extra {
   font-size: 12px;
   color: var(--text-second-color);
   text-wrap: balance;
 }
-
 
 #text-field {
   border: var(--line-box-color) solid 1px;
@@ -110,7 +129,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-bottom: 10px;
+  padding-bottom: 12px;
   gap: 10px;
 
   transition: transform 0.3s ease;
@@ -123,6 +142,10 @@
     font-size: 12px;
     font-weight: 300;
   }
+}
+
+#texto-extra {
+  height: 40px;
 }
 
 #instructions.invalid {
@@ -161,18 +184,12 @@
   display: none;
 }
 
-#message{
-  height: 100px;
-}
-
 #respon-message {
-  overflow-y: scroll;
   font-size: 20px;
   text-wrap: pretty;
   color: white;
   background-color: transparent;
   border: none;
-  height: 100%;
   width: 100%;
   font-family: var(--font-family);
   font-weight: 600;
@@ -184,13 +201,12 @@
   display: none;
 }
 
-
 /* Estilos resposive */
 /* Movil */
-@media (max-width: 450px) {
+@media (max-width: 560px) {
   #container {
     display: flex;
-    padding: 12px;
+    padding: 28px;
     flex-direction: column;
     height: auto;
     gap: 10px;
@@ -204,6 +220,10 @@
   #resp-container {
     height: 80vh;
     border-radius: 24px;
+  }
+
+  #cat-eyes-container {
+    height: 25%;
   }
 
   #text-field {
@@ -224,14 +244,21 @@
     font-size: 16px;
   }
 
-  #respon-message{
+  #respon-message {
     font-size: 20px;
     height: 40%;
   }
 
   #copiar {
-    height: 60px;
+    height: 54px;
     font-size: 16px;
   }
 }
- 
+
+/* Tableta */
+@media (max-width: 995px) {
+  #container {
+    grid-template-columns: 40% 30%;
+    gap: 40px;
+  }
+}

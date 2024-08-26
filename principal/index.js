@@ -87,7 +87,7 @@ function insertarMensaje(msg) {
     case msg.length === 0:
       campoMsg.innerText = "No logre encontrar tu Prrr... mensaje";
       subTexto.classList.remove("disabled");
-      btnCopiar.classList.add("disabled");
+      btnCopiar.classList.add("copiar");
       break;
 
     default:
