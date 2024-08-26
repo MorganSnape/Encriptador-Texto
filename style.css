@@ -1,14 +1,13 @@
-main{
+main {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 70vh;
+  height: 75vh;
   gap: 20px;
-
 }
 
-#title{
+#title {
   font-family: var(--font-family-second);
   font-size: 80px;
   font-weight: 400;
@@ -16,12 +15,36 @@ main{
   margin-bottom: 0;
 }
 
-h2{
-  font-weight: 400;
-  margin-top: 0;
-  font-size: 20px;
+
+main #foco-image {
+  height: 100px;
 }
 
-main #foco-image{
-  height:100px ;
+#link-app {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  height: 44px;
+  padding: 0px 12px 0px 12px;
+  width: max-content;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.3s ease-in-out;
+}
+
+#link-app:hover {
+  transform: scale(1.05);
+}
+@media (max-width: 450px) {
+  main{
+    height: 80vh;
+  }
+  #title{
+    font-size:50px;
+  }
 }
