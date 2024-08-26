@@ -2,6 +2,6 @@
 ## Proyecto del curso de Alura Latam + Oracle. 
 El texto que desees encriptar lo ingresas en su respectivo campo y cada letra sera reemplazada para hacer el mensaje solo se pueda descifrar con la misma app.
 
-![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](/img/Gatito.svg)
+![portada](https://github.com/user-attachments/assets/46a1fd38-c5ab-4180-a477-1910b1d1b210)
 
 <p align="center"> Hecho por: @MorganSnape ❤️</p>
